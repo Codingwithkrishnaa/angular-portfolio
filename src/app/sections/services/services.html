@@ -1,0 +1,64 @@
+
+<section id="services" class="services-section">
+  <div class=" mx-auto max-w-[1180px]">
+  <div class="services-container">
+
+    <!-- Section heading -->
+    <div class="services-heading">
+      <h2>My <span>Services</span></h2>
+
+      <p>
+        I build modern, responsive and scalable web experiences
+        that help businesses grow and solve real-world problems.
+      </p>
+    </div>
+
+    <!-- Service cards -->
+    <div class="services-grid">
+
+      @for (service of services; track service.title; let i = $index) {
+        <article
+          class="service-card"
+        >
+
+          <!-- Title -->
+          <div class="service-card-header">
+            <h3>{{ service.title }}</h3>
+          </div>
+
+          <!-- Description -->
+          <div class="service-description">
+            <p>{{ service.description }}</p>
+          </div>
+
+          <!-- Preview and layered cards -->
+          <div class="service-preview">
+
+            <div class="preview-layer preview-layer-back"></div>
+            <div class="preview-layer preview-layer-middle"></div>
+
+            <!-- Main image with curved bottom-right corner -->
+            <div class="preview-image">
+              <img
+                [src]="service.image"
+                [alt]="service.title + ' project preview'"
+              />
+            </div>
+
+            <!-- Round arrow button -->
+            <a
+              class="service-arrow"
+              [href]="service.link"
+              [attr.aria-label]="'Explore ' + service.title"
+            >
+              <span aria-hidden="true">↗</span>
+            </a>
+
+          </div>
+        </article>
+      }
+
+    </div>
+  </div>
+  </div>
+</section>

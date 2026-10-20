@@ -1,0 +1,61 @@
+
+<section id="experience" class="bg-white px-5 py-16 text-neutral-900 sm:px-8 md:py-20">
+  <div class="mx-auto max-w-[1180px]">
+
+    <!-- Heading -->
+    <h2 class="mb-14 text-center text-3xl font-semibold tracking-tight sm:mb-16 sm:text-4xl">
+      My Work Experience
+    </h2>
+
+    <!-- Timeline -->
+    <div class="relative">
+
+      <!-- Center dotted line -->
+      <div
+        class="pointer-events-none absolute bottom-8 left-1/2 top-8 hidden -translate-x-1/2 border-l-2 border-dotted border-neutral-400 md:block"
+      ></div>
+
+      @for (job of experiences; track job.company; let i = $index) {
+        <article class="relative grid grid-cols-[minmax(0,1fr)_24px_minmax(0,1fr)] items-start gap-x-3 pb-10 last:pb-0 sm:grid-cols-[minmax(0,1fr)_40px_minmax(0,1fr)] sm:gap-x-5 md:pb-14">
+
+          <!-- Left: Company and duration -->
+          <div class="pt-1 text-right md:pr-5">
+            <h3 class="text-base font-semibold leading-snug sm:text-xl md:text-2xl">
+              {{ job.company }}
+            </h3>
+
+            <p class="mt-2 text-xs leading-5 text-neutral-500 sm:text-sm sm:leading-6">
+              {{ job.period }}
+            </p>
+          </div>
+
+          <!-- Center: Timeline marker -->
+          <div class="relative z-10 flex justify-center">
+            <div
+              class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-dotted border-neutral-400 bg-white sm:h-9 sm:w-9"
+            >
+              <span
+                class="h-4 w-4 rounded-full sm:h-5 sm:w-5"
+                [class.bg-orange-500]="i % 2 === 0"
+                [class.bg-neutral-700]="i % 2 !== 0"
+              ></span>
+            </div>
+          </div>
+
+          <!-- Right: Designation and summary -->
+          <div class="pt-1 md:pl-5">
+            <h3 class="text-base font-semibold leading-snug sm:text-xl md:text-2xl">
+              {{ job.role }}
+            </h3>
+
+            <p class="mt-2 text-xs leading-5 text-neutral-600 sm:text-sm sm:leading-6">
+              {{ job.description }}
+            </p>
+          </div>
+
+        </article>
+      }
+
+    </div>
+  </div>
+</section>
